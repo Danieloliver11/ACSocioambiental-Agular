@@ -4,6 +4,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { ItemComponent } from './item/item.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { LoginComponent } from './login/login.component';
+
 import { MenuComponent } from './menu/menu.component';
 import { ProdutoComponent } from './produto/produto.component';
 import { CadastarProdutoComponent } from './cadastar-produto/cadastar-produto.component';
@@ -17,7 +18,7 @@ const routes: Routes = [
   {path: 'produtos', component: ProdutoComponent},
   {path: 'item', component: ItemComponent},
   {path: 'cadastar-produto/:id', component: CadastarProdutoComponent},
-  {path: 'deletar-produto/:id', component: DeletarProdutoComponent}  
+  {path: 'deletar-produto/:id', component: DeletarProdutoComponent}
 ]
 
 

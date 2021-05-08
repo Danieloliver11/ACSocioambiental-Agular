@@ -34,7 +34,6 @@ import { CategoriaComponent } from './categoria/categoria.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule
-
   ],
   providers: [],
   bootstrap: [AppComponent]
