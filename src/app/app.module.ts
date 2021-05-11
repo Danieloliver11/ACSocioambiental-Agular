@@ -15,6 +15,10 @@ import { CadastarProdutoComponent } from './cadastar-produto/cadastar-produto.co
 import { DeletarProdutoComponent } from './deletar-produto/deletar-produto.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 
+import { SobreComponent } from './sobre/sobre.component';
+import { ProdutoEditComponent } from './edit/produto-edit/produto-edit.component';
+import { CategoriaEditComponent } from './edit/categoria-edit/categoria-edit.component';
+import { DeleteCategoriaComponent } from './delete-categoria/delete-categoria.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { CategoriaComponent } from './categoria/categoria.component';
     ItemComponent,
     CadastarProdutoComponent,
     DeletarProdutoComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    SobreComponent,
+    ProdutoEditComponent,
+    CategoriaEditComponent,
+    DeleteCategoriaComponent
   ],
   imports: [
     BrowserModule,
