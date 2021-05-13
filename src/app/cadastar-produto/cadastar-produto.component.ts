@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Produto } from '../model/Produto';
+import { AlertasService } from '../service/alertas.service';
 import { produtoService } from '../service/produto.service';
 
 @Component({
@@ -16,18 +17,21 @@ export class CadastarProdutoComponent implements OnInit {
   constructor(
     private produtoS: produtoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertas: AlertasService
   ) { }
 
   ngOnInit() {
     if(environment.token ==''){
-      this.router.navigate(['/login'])
-  }
-  let id = this.route.snapshot.params['id']
+        this.router.navigate(['/login']);
+
+    }
+
+    let id = this.route.snapshot.params['id']
     this.findByIdItem(id)
 
   }
-  
+
   findByIdItem(id: number){
     this.produtoS.getByIdProduto(id).subscribe((resp: Produto) =>{
       this.item = resp
@@ -38,8 +42,8 @@ export class CadastarProdutoComponent implements OnInit {
     this.produtoS.putProduto(this.item).subscribe((resp: Produto) =>
     {
       this.item = resp
-      alert('Produto atualizado com sucesso')
-      this.router.navigate(['/item'])
+      this.alertas.showAlertSuccess('Produto atualizado com sucesso')
+      this.router.navigate(['/produtos'])
     })
   }
 

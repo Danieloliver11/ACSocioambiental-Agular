@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment.prod';
+import { Router } from '@angular/router';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,11 +9,21 @@ import { environment } from 'src/environments/environment.prod';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router,
+    public auth: AuthService
+
+  ) { }
 
   ngOnInit(){
     //tirar depois
-    console.log(environment.token,'<==== ====== ==== token !!!!00000000')
+
+  }
+
+  /* DESLOGA O USUARIO DA SESSAO */
+  sair() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
 
   }
 

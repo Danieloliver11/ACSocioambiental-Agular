@@ -35,12 +35,36 @@ export class AuthService {
     return ok
   }
 
+  /*logado (){
+    let ok: boolean = false
+
+    if(localStorage.getItem('token') != null) {
+      ok = true
+    }
+
+    return ok
+
+  }*/
+
   ajusteMenu() {
     if(window.document.URL != '/home') {
       window.document.querySelector('..navbar-light')?.setAttribute('style', 'position: relative !important;')
 
     }
 
+  }
+
+  adm(){
+    let ok: boolean = false
+
+    if(environment.tipo == 'adm'){
+      ok = true
+      console.log('acessou ok')
+    }else {
+      console.log('não acessou')
+    }
+
+    return ok
   }
 
 }

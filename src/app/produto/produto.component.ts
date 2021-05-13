@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Categoria } from '../model/Categoria';
 import { Produto } from '../model/Produto';
+import { AlertasService } from '../service/alertas.service';
+import { AuthService } from '../service/auth.service';
 import { CategoriaService } from '../service/categoria.service';
 import { produtoService } from '../service/produto.service';
 
@@ -21,21 +23,31 @@ export class ProdutoComponent implements OnInit {
   listaDeCategoria: Categoria[];
   idCategoria: number;
 
+  key = 'categoria';
+  reverse = false;
+
   constructor(
     private router: Router,
     private produtoService: produtoService,
     private route: ActivatedRoute,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private alertas: AlertasService,
+    public auth: AuthService
 
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0);
 
-    if(environment.token == '') {
+    if(localStorage.getItem('token') == null) {
       this.router.navigate(['/login']);
 
     }
+
+    /*if(localStorage.getItem('token') == null) {
+      this.router.navigate(['/login']);
+
+    }*/
 
     this.idProduto = this.route.snapshot.params['id'];
 
@@ -84,7 +96,7 @@ export class ProdutoComponent implements OnInit {
     this.produtoService.postProduto(this.produto).subscribe((resp: Produto) => {
       this.produto = resp;
 
-      alert('Postagem realizada com sucesso!');
+      this.alertas.showAlertSuccess('Postagem realizada com sucesso!');
 
       /* INSTANCIA UM NOVO OBJETO POSTAGEM PARA LIMPAR OS CAMPOS */
       this.produto = new Produto();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from 'src/environments/environment.prod';
 import { Produto } from '../model/Produto';
+import { AlertasService } from '../service/alertas.service';
 import { produtoService } from '../service/produto.service';
 
 @Component({
@@ -17,13 +18,21 @@ export class DeletarProdutoComponent implements OnInit {
   constructor(
     private produtoS: produtoService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alertas: AlertasService
+
   ) { }
 
   ngOnInit() {
-    if(environment.token == ''){
+    if(localStorage.getItem('token') == null) {
       this.router.navigate(['/login']);
+
     }
+
+    /*if(localStorage.getItem('token') == null) {
+      this.router.navigate(['/login']);
+
+    }*/
 
     this.idItem = this.route.snapshot.params['id'];
     this.findByIdItem(this.idItem);
@@ -39,7 +48,7 @@ export class DeletarProdutoComponent implements OnInit {
 
   apagar(){
     this.produtoS.deleteProduto(this.idItem).subscribe(()=>{
-      alert('Produto apagado com sucesso!');
+      this.alertas.showAlertSuccess('Produto apagado com sucesso!');
 
       this.router.navigate(['/produtos']);
 
