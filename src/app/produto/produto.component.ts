@@ -26,6 +26,8 @@ export class ProdutoComponent implements OnInit {
   key = 'data';
   reverse = true;
 
+  bloco = 'style="display: none;"';
+
   constructor(
     private router: Router,
     private produtoService: produtoService,
@@ -116,5 +118,22 @@ export class ProdutoComponent implements OnInit {
     })
 
   }
+
+  ajustarPosicao(categoria: string) {
+    //for(let i = 0; i < this.listaDeProdutos.length; i++) {
+
+    console.log('Categoria: '+ categoria);
+
+      if(categoria == 'Amazônia' || categoria == 'Cerrado') {
+        this.bloco = 'style="display: block;"';
+
+      }else {
+        this.bloco = 'style="display: none;"';
+
+      }
+
+  }
+
+  //}
 
 }

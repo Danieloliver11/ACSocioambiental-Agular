@@ -44,15 +44,10 @@ export class AjudaSocialComponent implements OnInit {
 
     }
 
-    /*if(localStorage.getItem('token') == null) {
-      this.router.navigate(['/login']);
-
-    }*/
-
     this.idProduto = this.route.snapshot.params['id'];
 
-    this.findByIdCategoria(2);
-  
+    this.findAllByProdutos();
+    this.findAllByCategoria();
 
   }
 
@@ -81,7 +76,7 @@ export class AjudaSocialComponent implements OnInit {
   }
 
   /* TRAZ UM TEMA POR MEIO DO ID */
-  findByIdCategoria(idCategoria: number) {
+  findByIdCategoria() {
     this.categoriaService.getByIdCategoria(this.idCategoria).subscribe((resp: Categoria) => {
       this.categoria = resp;
 

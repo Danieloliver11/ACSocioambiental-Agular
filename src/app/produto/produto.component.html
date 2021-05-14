@@ -6,12 +6,12 @@
       </div>
     </div>
     <div class="produtos">
-        <div class="bloco" *ngFor='let item of listaDeProdutos | orderBy: key : reverse'>
-            <a [routerLink]="['/comprar-item', item.id]" class="img">
+        <div class="bloco" *ngFor='let item of listaDeProdutos | orderBy: key : reverse' >
+            <a *ngIf='item.categoria.nome != "Ajuda Social" ' [routerLink]="['/comprar-item', item.id]" class="img">
                 <!-- VERIFICAR PQ A IMAGEM NAO ESTA SENDO INFORMADA NA TELA -->
                 <img src="{{item.imagem}}" alt="">
             </a>
-            <div class="dados">
+            <div *ngIf='item.categoria.nome != "Ajuda Social" ' class="dados">
                 <h5>{{item.categoria.nome}}</h5>
                 <h2>{{item.nome}}</h2>
                 <h4>{{item.descricao}}</h4>

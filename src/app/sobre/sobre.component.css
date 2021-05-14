@@ -605,7 +605,7 @@ h1, h2, h3, h4, p {
   margin-top: 10%;
   padding: 2%;
 
-  width: 76%;
+  width: 80%;
   height: auto;
 
   display: flex;
@@ -618,7 +618,7 @@ h1, h2, h3, h4, p {
 .atuacao .desenvolvedores .colaboradores .carde .perfil p {
   color: var(--text-gray-bold) !important;
 
-  font-size: 1.1rem !important;
+  font-size: 0.9rem !important;
 
   line-height: 1.7 !important;
 
