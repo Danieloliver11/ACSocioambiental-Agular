@@ -9,11 +9,11 @@ import { CategoriaService } from '../service/categoria.service';
 import { produtoService } from '../service/produto.service';
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.css']
+  selector: 'app-ajuda-social',
+  templateUrl: './ajuda-social.component.html',
+  styleUrls: ['./ajuda-social.component.css']
 })
-export class ProdutoComponent implements OnInit {
+export class AjudaSocialComponent implements OnInit {
 
   produto: Produto = new Produto();
   idProduto: number;
@@ -25,8 +25,6 @@ export class ProdutoComponent implements OnInit {
 
   key = 'data';
   reverse = true;
-
-  bloco = 'style="display: none;"';
 
   constructor(
     private router: Router,
@@ -46,15 +44,10 @@ export class ProdutoComponent implements OnInit {
 
     }
 
-    /*if(localStorage.getItem('token') == null) {
-      this.router.navigate(['/login']);
-
-    }*/
-
     this.idProduto = this.route.snapshot.params['id'];
 
-    this.findAllByCategoria();
     this.findAllByProdutos();
+    this.findAllByCategoria();
 
   }
 
@@ -118,22 +111,5 @@ export class ProdutoComponent implements OnInit {
     })
 
   }
-
-  ajustarPosicao(categoria: string) {
-    //for(let i = 0; i < this.listaDeProdutos.length; i++) {
-
-    console.log('Categoria: '+ categoria);
-
-      if(categoria == 'Amazônia' || categoria == 'Cerrado') {
-        this.bloco = 'style="display: block;"';
-
-      }else {
-        this.bloco = 'style="display: none;"';
-
-      }
-
-  }
-
-  //}
 
 }

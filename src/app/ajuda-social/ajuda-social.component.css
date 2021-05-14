@@ -10,7 +10,7 @@
 
 .container-produtos .produtos{
     display:flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
 
     flex-wrap: wrap;
@@ -40,7 +40,6 @@
 .container-produtos .produtos .bloco .img img{
     width: 100%;
     height: auto;
-
 
     -webkit-transition: -webkit-transform .3s ease-in-out;
     transition: transform, .3s ease-in-out;
@@ -279,4 +278,3 @@ option {
   font-weight: 700 !important;
 
 }
-

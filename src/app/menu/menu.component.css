@@ -138,3 +138,25 @@ body {
   color: var(--icon) !important;
 
 }
+
+.logout-icone {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 5%;
+  height: auto;
+
+}
+
+.logout-icone svg {
+  padding: 15%;
+
+  width: 70%;
+  height: auto;
+
+  color: var(--icon);
+
+  cursor: pointer;
+
+}

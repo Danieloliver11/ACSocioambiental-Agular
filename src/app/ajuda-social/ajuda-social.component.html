@@ -6,12 +6,12 @@
       </div>
     </div>
     <div class="produtos">
-        <div class="bloco" *ngFor='let item of listaDeProdutos | orderBy: key : reverse' >
-            <a *ngIf='item.categoria.nome != "Ajuda Social" ' [routerLink]="['/comprar-item', item.id]" class="img">
+        <div class="bloco" *ngFor='let item of listaDeProdutos | orderBy: key : reverse'>
+            <a *ngIf='item.categoria.nome == "Ajuda Social" ' [routerLink]="['/comprar-item', item.id]" class="img">
                 <!-- VERIFICAR PQ A IMAGEM NAO ESTA SENDO INFORMADA NA TELA -->
                 <img src="{{item.imagem}}" alt="">
             </a>
-            <div *ngIf='item.categoria.nome != "Ajuda Social" ' class="dados">
+            <div *ngIf='item.categoria.nome == "Ajuda Social" ' class="dados">
                 <h5>{{item.categoria.nome}}</h5>
                 <h2>{{item.nome}}</h2>
                 <h4>{{item.descricao}}</h4>
@@ -56,7 +56,7 @@
               <!-- O ATRIBUTO data-dismiss="modal", FAZ COM QUE O ITEM INFORMADO SEJA FINALIZADO POR COMPLETO -->
               <label class="texto-gray" for="texto">Escolha uma categoria ou <a class="texto-link" routerLink='/categoria' data-dismiss="modal">cadastre um novo</a>: </label>
               <!-- POR MEIO DA ESCOLHA DO USUARIO E PELO METODO (CHANGE) E CAPITURADO O ID DA OPCAO ESCOLHIDA PELO USUARIO -->
-              <select [(ngModel)]='idCategoria' class="form-control texto-input" name="categoria" id="categoria" (change)='findAllByCategoria()' >
+              <select [(ngModel)]='idCategoria' class="form-control texto-input" name="categoria" id="categoria" (change)='findAllByCategoria()'>
                   <!-- CRIA UM LOOP FOR PARA MOSTRAR TODAS AS OPCOES CONTIDAS DENTRO DA BADE DE DADOS DE TEMA -->
                   <!-- TRAZ O VALOR DO ID DE CADA TEMA E DEIXA-O ARMAZENDO DENTRO DO VALUE="id" -->
                   <option *ngFor='let item of listaDeCategoria' value="{{item.id}}">{{item.nome}}</option>

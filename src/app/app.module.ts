@@ -22,6 +22,7 @@ import { DeleteCategoriaComponent } from './delete-categoria/delete-categoria.co
 import { AlertasComponent } from './alertas/alertas.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { OrderModule } from 'ngx-order-pipe';
+import { AjudaSocialComponent } from './ajuda-social/ajuda-social.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { OrderModule } from 'ngx-order-pipe';
     ProdutoEditComponent,
     CategoriaEditComponent,
     DeleteCategoriaComponent,
-    AlertasComponent
+    AlertasComponent,
+    AjudaSocialComponent
   ],
   imports: [
     BrowserModule,
